@@ -1,0 +1,23 @@
+########################
+#   SIR by CroaBeast   #
+# Depressed since 2004 #
+########################
+# Want to use unicode characters? Check this site: https://coolsymbol.com
+
+updater:
+  config: true
+  lang: false
+
+resource-pack:
+  url: https://download.mc-packs.net/pack/4c01ee56f7dbc2729fb1f4764b723ffef06ec04c.zip
+  hash: 4c01ee56f7dbc2729fb1f4764b723ffef06ec04c
+
+execute:
+  gui-speed: 20
+  kick: true
+  accept:
+    - "say {PLAYER} accepted the ResourcePack."
+  decline:
+    - "say {PLAYER} declined the ResourcePack."
+  fail:
+    - "say {PLAYER} couldn't download the ResourcePack."

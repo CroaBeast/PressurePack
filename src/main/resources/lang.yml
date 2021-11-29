@@ -1,0 +1,18 @@
+########################
+#   SIR by CroaBeast   #
+# Depressed since 2004 #
+########################
+# Want to use unicode characters? Check this site: https://coolsymbol.com
+
+not-permission: "&7 &a&lPR-PACK &8> &cYou don't have the permission {PERM}."
+wrong-arg: "&7 &a&lPR-PACK &8> &cThe argument {ARG} doesn't exist or is invalid."
+reload: "&7 &a&lPR-PACK &8> &eAll the files have been reloaded in {TIME} ms."
+
+pack-messages:
+  declined:
+    - "&cYou need to accept the resource pack to play."
+    - "&7Check this tutorial:&e https://samb440.gitlab.io/resourcepack.html"
+  accepted: "&aThanks for accepting the resource pack!"
+  failed: "&cDownload failed. &7Reconnect and try again."
+  prompt-text: "&ePlease accept it, will be better for you" # Only with Paper and forks of it.
+

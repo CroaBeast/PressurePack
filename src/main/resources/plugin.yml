@@ -1,0 +1,28 @@
+name: PressurePack
+version: '${project.version}'
+api-version: 1.17
+authors: [ CroaBeast ]
+prefix: PrPack
+
+softdepend:
+  - Vault
+  - PlaceholderAPI
+
+main: me.croabeast.pressurepack.Application
+
+commands:
+  pressure-pack:
+    aliases: [ pack ]
+
+permissions:
+  pressure-pack.*:
+    default: op
+    children:
+      pressure-pack.bypass: true
+      pressure-pack.reload: true
+
+  pressure-pack.bypass:
+    default: op
+
+  pressure-pack.reload:
+    default: op
