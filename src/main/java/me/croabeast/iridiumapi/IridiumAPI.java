@@ -6,7 +6,7 @@ import net.md_5.bungee.api.ChatColor;
 import org.bukkit.Bukkit;
 import org.jetbrains.annotations.NotNull;
 
-import java.awt.*;
+import java.awt.Color;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
@@ -55,9 +55,10 @@ public class IridiumAPI {
     public static String color(@NotNull String string, @NotNull Color start, @NotNull Color end) {
         StringBuilder specialColors = new StringBuilder();
         for (String color : SPECIAL_COLORS) {
-            if (!string.contains(color)) continue;
-            specialColors.append(color);
-            string = string.replace(color, "");
+            if (string.contains(color)) {
+                specialColors.append(color);
+                string = string.replace(color, "");
+            }
         }
 
         StringBuilder stringBuilder = new StringBuilder();
@@ -65,7 +66,7 @@ public class IridiumAPI {
         String[] characters = string.split("");
 
         for (int i = 0; i < string.length(); i++)
-            stringBuilder.append(specialColors).append(colors[i]).append(characters[i]);
+            stringBuilder.append(colors[i]).append(specialColors).append(characters[i]);
         return stringBuilder.toString();
     }
 
@@ -73,9 +74,10 @@ public class IridiumAPI {
     public static String rainbow(@NotNull String string, float saturation) {
         StringBuilder specialColors = new StringBuilder();
         for (String color : SPECIAL_COLORS) {
-            if (!string.contains(color)) continue;
-            specialColors.append(color);
-            string = string.replace(color, "");
+            if (string.contains(color)) {
+                specialColors.append(color);
+                string = string.replace(color, "");
+            }
         }
 
         StringBuilder stringBuilder = new StringBuilder();
@@ -83,7 +85,7 @@ public class IridiumAPI {
         String[] characters = string.split("");
 
         for (int i = 0; i < string.length(); i++)
-            stringBuilder.append(specialColors).append(colors[i]).append(characters[i]);
+            stringBuilder.append(colors[i]).append(specialColors).append(characters[i]);
         return stringBuilder.toString();
     }
 
@@ -140,6 +142,7 @@ public class IridiumAPI {
             double distance = Math.pow(color.getRed() - constantColor.getRed(), 2)
                     + Math.pow(color.getGreen() - constantColor.getGreen(), 2)
                     + Math.pow(color.getBlue() - constantColor.getBlue(), 2);
+
             if (nearestDistance > distance) {
                 nearestColor = constantColor;
                 nearestDistance = distance;

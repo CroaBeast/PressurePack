@@ -21,6 +21,7 @@ public class PackListener implements Listener {
         this.records = main.getRecords();
         this.text = main.getTextUtils();
         this.perms = main.getPermUtils();
+
         main.registerListener(this);
         main.getInitializer().LISTENERS++;
     }

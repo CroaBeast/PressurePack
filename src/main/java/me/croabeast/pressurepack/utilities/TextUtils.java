@@ -80,9 +80,7 @@ public class TextUtils {
                 file.getStringList(path);
     }
     
-    private List<String> toList(String path) {
-        return fileList(main.getConfig(), path);
-    }
+    private List<String> toList(String path) { return fileList(main.getConfig(), path); }
     
     public void send(CommandSender sender, String path, String key, String value) {
         for (String line : fileList(main.getLang(), path)) {
@@ -112,10 +110,8 @@ public class TextUtils {
             if (joinList.contains("[C]")) joinList = joinList.replace("[C]", "");
             joinList = joinList.replace("{PLAYER}", player.getName());
 
-            player.kickPlayer(
-                    list == null || list.size() == 0 ?
-                            "&cPlease, accept the ResourcePack" :
-                            parsePAPI(player, joinList)
+            player.kickPlayer(list == null || list.size() == 0 ?
+                    "&cPlease, accept the ResourcePack" : parsePAPI(player, joinList)
             );
         }
         

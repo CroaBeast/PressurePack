@@ -50,19 +50,7 @@ public class Initializer {
 
     public void registerHooks() {
         records.doRecord("", "&bChecking all plugin hooks...");
-
-        String pluginVersion;
-        String isHooked;
-
-        if (isPlugin("PlaceholderAPI")) {
-            pluginVersion = main.getPlugin("PlaceholderAPI").getDescription().getVersion();
-            isHooked = " &aenabled&7. Hooking...";
-        } else {
-            pluginVersion = "";
-            isHooked = "&cnot found&7. Unhooking...";
-        }
-
-        records.doRecord("&7" + "PlaceholderAPI" + " " + pluginVersion + isHooked);
+        showPluginInfo("PlaceholderAPI");
 
         if (!HAS_VAULT)
             records.doRecord("&7Vault&c isn't installed&7, using default system.");
@@ -86,5 +74,20 @@ public class Initializer {
 
     public void reloadFiles() {
         filesList.forEach(SavedFile::reloadFile);
+    }
+
+    public void showPluginInfo(String name) {
+        String pluginVersion;
+        String isHooked;
+
+        if (isPlugin(name)) {
+            pluginVersion = main.getPlugin(name).getDescription().getVersion();
+            isHooked = " &aenabled&7. Hooking...";
+        } else {
+            pluginVersion = "";
+            isHooked = "&cnot found&7. Unhooking...";
+        }
+
+        records.doRecord("&7" + name + " " + pluginVersion + isHooked);
     }
 }

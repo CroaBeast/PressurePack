@@ -6,18 +6,18 @@ import net.kyori.adventure.text.*;
 import net.kyori.adventure.text.serializer.legacy.*;
 import org.bukkit.entity.*;
 
-public class Paper extends ResourcePack {
+public class PaperPack extends ResourcePack {
 
     private final Application main;
 
-    public Paper(Application main, String url, String hash) {
+    public PaperPack(Application main, String url, String hash) {
         super(url, hash);
         this.main = main;
     }
 
     @Override
     public void setResourcePack(Player player) {
-        if (main.GET_VERSION > 16) {
+        if (main.MC_VERSION > 16) {
             String rawText = main.getLang().getString("pack-messages.prompt-text");
             rawText = main.getTextUtils().parsePAPI(player, rawText);
             Component text = LegacyComponentSerializer.legacyAmpersand().deserialize(rawText);

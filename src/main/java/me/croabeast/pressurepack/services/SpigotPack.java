@@ -2,9 +2,9 @@ package me.croabeast.pressurepack.services;
 
 import org.bukkit.entity.Player;
 
-public class Spigot extends ResourcePack {
+public class SpigotPack extends ResourcePack {
 
-    public Spigot(String url, String hash) {
+    public SpigotPack(String url, String hash) {
         super(url, hash);
     }
 

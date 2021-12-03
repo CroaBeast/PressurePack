@@ -20,7 +20,8 @@ public final class Application extends JavaPlugin {
     private PermUtils perms;
 
     public String PLUGIN_VERSION;
-    public int GET_VERSION;
+    public String MC_FORK;
+    public int MC_VERSION;
 
     @Override
     public void onEnable() {
@@ -28,8 +29,8 @@ public final class Application extends JavaPlugin {
         main = this;
 
         String version = Bukkit.getBukkitVersion().split("-")[0];
-        GET_VERSION = Integer.parseInt(version.split("\\.")[1]);
-        String mcName = Bukkit.getVersion().split("-")[1] + " " + version;
+        MC_VERSION = Integer.parseInt(version.split("\\.")[1]);
+        MC_FORK = Bukkit.getVersion().split("-")[1] + " " + version;
 
         PLUGIN_VERSION = getDescription().getVersion();
 
@@ -39,14 +40,16 @@ public final class Application extends JavaPlugin {
         perms = new PermUtils(main);
 
         records.rawRecord(
-                "&0* &e ___         ___",
-                "&0* &e|___)       |___)",
-                "&0* &e|   RESSURE |   ACK &fv" + PLUGIN_VERSION,
+                "&0* *&e___&0 * * * * &e___",
+                "&0* &e|___)&0 * * * &e|___)",
+                "&0* &e|&0 * &eRESSURE | &0* &eACK &fv" + PLUGIN_VERSION,
                 "&0* &7Developer: " + getDescription().getAuthors().get(0),
-                "&0* &7Software: " + mcName, ""
+                "&0* &7Software: " + MC_FORK,
+                "&0* &7Java Version: " + System.getProperty("java.version"),
+                ""
         );
 
-        if (GET_VERSION < 9) {
+        if (MC_VERSION < 9) {
             records.doRecord(
                     "&cThis plugin doesn't work in 1.8 or older.",
                     "&cUpdate your server version, then install the plugin."
@@ -77,7 +80,6 @@ public final class Application extends JavaPlugin {
                     "&cPlease change it to a valid one.",
                     "&7Localized error: &e" + e.getLocalizedMessage()
             );
-            e.printStackTrace();
         }
 
         records.doRecord("",
@@ -90,9 +92,9 @@ public final class Application extends JavaPlugin {
     @Override
     public void onDisable() {
         records.rawRecord(
-                "&0* &e ___         ___",
-                "&0* &e|___)       |___)",
-                "&0* &e|   RESSURE |   ACK &fv" + PLUGIN_VERSION,
+                "&0* *&e___&0 * * * * &e___",
+                "&0* &e|___)&0 * * * &e|___)",
+                "&0* &e|&0 * &eRESSURE | &0* &eACK &fv" + PLUGIN_VERSION,
                 "&0* &7Developer: " + getDescription().getAuthors().get(0), ""
         );
         records.doRecord(
