@@ -67,27 +67,6 @@
                     </relocations>
                 </configuration>
             </plugin>
-
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-install-plugin</artifactId>
-                <version>2.5.2</version>
-                <executions>
-                    <execution>
-                        <phase>initialize</phase>
-                        <goals>
-                            <goal>install-file</goal>
-                        </goals>
-                        <configuration>
-                            <groupId>com.elchologamer</groupId>
-                            <artifactId>UserLogin</artifactId>
-                            <version>2.12.1</version>
-                            <packaging>jar</packaging>
-                            <file>lib/UserLogin.jar</file>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
         </plugins>
 
         <resources>
@@ -154,12 +133,6 @@
             <groupId>com.github.MilkBowl</groupId>
             <artifactId>VaultAPI</artifactId>
             <version>1.7</version>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.elchologamer</groupId>
-            <artifactId>UserLogin</artifactId>
-            <version>2.12.1</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>

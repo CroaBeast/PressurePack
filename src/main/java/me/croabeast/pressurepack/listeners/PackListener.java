@@ -41,8 +41,8 @@ public class PackListener implements Listener {
             case DECLINED:
                 perms.getWaitList().remove(id);
                 records.doRecord("&7" + player.getName() + " declined the ResourcePack.");
-                text.runCommands(player, "decline");
                 text.sendOrKick(player, "declined", main.getConfig().getBoolean("execute.kick"));
+                text.runCommands(player, "decline");
                 break;
 
             case FAILED_DOWNLOAD:

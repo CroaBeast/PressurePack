@@ -7,7 +7,6 @@ prefix: PrPack
 softdepend:
   - Vault
   - PlaceholderAPI
-  - UserLogin
 
 main: me.croabeast.pressurepack.Application
 

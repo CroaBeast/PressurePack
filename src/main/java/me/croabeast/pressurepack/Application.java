@@ -45,8 +45,7 @@ public final class Application extends JavaPlugin {
                 "&0* &e|&0 * &eRESSURE | &0* &eACK &fv" + PLUGIN_VERSION,
                 "&0* &7Developer: " + getDescription().getAuthors().get(0),
                 "&0* &7Software: " + MC_FORK,
-                "&0* &7Java Version: " + System.getProperty("java.version"),
-                ""
+                "&0* &7Java Version: " + System.getProperty("java.version"), ""
         );
 
         if (MC_VERSION < 9) {
@@ -64,18 +63,23 @@ public final class Application extends JavaPlugin {
 
         new Executor(main);
 
+        records.doRecord("", "&bChecking is the resource pack has a valid URL...");
         try {
             PackUtils.perform(getURL(), getHash(), (url, config, match) -> {
-                if (match) return;
-                records.doRecord("",
+                if (match) {
+                    records.doRecord("&7The resource pack is valid and will be loaded.");
+                    return;
+                }
+                records.doRecord("" +
                         "&cThe hash doesn't match the URL provider.",
                         "&7Original URL bytes: &b" + Arrays.toString(url),
                         "&7Your config.yml bytes: &b" + Arrays.toString(config),
                         "&eCorrect that error as soon as possible."
                 );
             });
-        } catch (Exception e) {
-            records.doRecord("",
+        }
+        catch (Exception e) {
+            records.doRecord("" +
                     "&cYour SHA-1 hash/url is invalid.",
                     "&cPlease change it to a valid one.",
                     "&7Localized error: &e" + e.getLocalizedMessage()
@@ -94,8 +98,7 @@ public final class Application extends JavaPlugin {
         records.rawRecord(
                 "&0* *&e___&0 * * * * &e___",
                 "&0* &e|___)&0 * * * &e|___)",
-                "&0* &e|&0 * &eRESSURE | &0* &eACK &fv" + PLUGIN_VERSION,
-                "&0* &7Developer: " + getDescription().getAuthors().get(0), ""
+                "&0* &e|&0 * &eRESSURE | &0* &eACK &fv" + PLUGIN_VERSION, ""
         );
         records.doRecord(
                 "&7PressurePack &c" + PLUGIN_VERSION + "&7 was totally disabled.",
